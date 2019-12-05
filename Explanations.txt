@@ -1,0 +1,7 @@
+1. No .env key ==> cp .env.example .env; php artisan key:generate
+
+2. AddNewColumnsUsersTable ==> you are better off storing dates as string in laravel. I also made alll fields nullable
+
+3. I changed db to sqlite in .env ==> touch database/database.sqlite
+
+4. I created the user using a model.. it gives a lot of ways for setting am=nd accessing attributes.
