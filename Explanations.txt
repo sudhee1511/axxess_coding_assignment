@@ -1,7 +1,6 @@
-1. No .env key ==> cp .env.example .env; php artisan key:generate
-
-2. AddNewColumnsUsersTable ==> you are better off storing dates as string in laravel. I also made alll fields nullable
-
-3. I changed db to sqlite in .env ==> touch database/database.sqlite
-
-4. I created the user using a model.. it gives a lot of ways for setting am=nd accessing attributes.
+1. AddNewColumnsUsersTable ==> stored all dates as string in the db. (made the fields nullable)
+2. I changed db to sqlite in .env ==> touch database/database.sqlite
+3. I created the user using a model.
+4. Added the start date as a input field on the sign up page.
+5. After signup up, adding the visit date on the add visit page leads to url what I specified in the code. I can change it to whatever but was not sure. I added the comments too there in the code.
+6. Ran the local db server on sqlite and was able to succesfully add user, add a visit to patient, process missed vists and return api.
