@@ -111,7 +111,7 @@ input[type=submit]:hover {
             @endif
 			
             <div class="content">
-			<h3>List of patients</h3>
+			<h3>Upcoming list of patients having deadline</h3>
 					<div class="container">
                         @if($upcoming_patients_list->isEmpty())
                             NO UPCOMING DEADLINES

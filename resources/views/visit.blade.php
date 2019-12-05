@@ -133,14 +133,14 @@ input[type=submit]:hover {
 							{{--<label for="pids">Patient ID</label>--}}
     						{{--<input type="text" id="pids" name="pid" placeholder="Enter patient id" required="true">--}}
 
-                            <label for="pid">Patient </label>
+                            <label for="pid">Patient Name</label>
                             <select name="pid" id="pid">
                                 <option>Select Patient</option>
                                 @foreach(\App\User::all() as $user)
                                     <option value="{{$user->id}}"> {{ $user->name }}</option>
                                 @endforeach
                             </select>
-
+							<label for="visit_date">Visit Date</label>
 							<input type="date" name="visit_date" value="" required="true"><br><br>
 							
 							<input type="hidden" name="_token" value="{{csrf_token()}}">

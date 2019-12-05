@@ -26,25 +26,19 @@ class Users extends Controller
 		$month = $user_post->input('month');
 		$birthday = '';
 		$birthday .= $year.'-'.$month.'-'.$day;
-		$start_date = $user_post->input('start_date_initial_contact');
+		$start_date = $user_post->input('start_date');
 		$dead_line_date = date('Y-m-d', strtotime($start_date. ' + 90 days'));
-		$this->validate(request(), [
-            'fullname' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required'
-        ]);
 		
-		//using the model lets you save a created_at && updated_at date
+		//using the model saves the created_at && updated_at date
 		$user = User::create([
 		    "name" => $user_post->fullname,
             'email' => $user_post->email,
-            "password" => bcrypt($user_post->password),//password are always hashed!! not just encrypted!!
-            "birth_date" => Carbon::parse($birthday), //Carbon is used a lot for time manipulation
-            "start_date" => now(),//now is a global helper function, today() is another one == Carbon::now()
-            "dead_line" => Carbon::parse(now())->addDays(90)
+            "password" => bcrypt($user_post->password),//password hashing
+            "birth_date" => Carbon::parse($birthday), //used carbon for time manipulation
+            "start_date" => Carbon::parse($start_date),
+            "dead_line" => Carbon::parse($start_date)->addDays(90)
             ]);
-//		DB::insert('insert into users(id,name,email,password,birth_date,start_date,dead_line) values(?,?,?,?,?,?,?)',[null,$fullname,$email,$password,$birthday,$start_date,$dead_line_date]);
         
-        return $user; // return to home page will be better.. return url('/')
+        return $user; // returning the user added in the json format - could also return with view or any url
 	}
 }

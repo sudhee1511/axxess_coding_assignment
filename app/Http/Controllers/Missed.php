@@ -22,8 +22,8 @@ class Missed extends Controller
     }
 
     public function makeMissed(){
-       $update = User::where("dead_line","<=", now())->whereNull("follow_up")
-            ->whereNull("visit_date")->update(["follow_up"=>"missed"]);
+       $update = User::where("dead_line","<=", "visit_date")->whereNull("follow_up")
+            ->update(["follow_up"=>"missed"]);
        if($update){
 		  return "Successfully updated $update users!!!"; 
 	   } else{

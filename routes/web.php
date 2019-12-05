@@ -14,7 +14,6 @@
 Route::view('/', "welcome");
 Route::view('signup', "signup");
 Route::view('visit', "visit");
-//Route::view('/process_missed_visits', "process_missed_visits");
 
 Route::get('/missed','Missed@index');
 

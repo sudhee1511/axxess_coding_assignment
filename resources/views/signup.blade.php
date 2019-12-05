@@ -197,7 +197,8 @@ input[type=submit]:hover {
 										catch(ex){
 											e.add(s);}} 
 							</script>
-							
+							<label for="start_date">Start Date</label>
+							<input type="date" name="start_date" value="" required="true"><br><br>
 							<input type="hidden" name="start_date_initial_contact" value="<?php echo date('Y-m-d'); ?>">
 							<br><br><br><br>
 							<input type="hidden" name="_token" value="{{csrf_token()}}">
