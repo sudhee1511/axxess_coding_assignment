@@ -111,13 +111,13 @@ input[type=submit]:hover {
             @endif
 			
             <div class="content">
-			<h3>Upcoming list of patients having deadline</h3>
+			<h3>List of patients having upcoming deadline</h3>
 					<div class="container">
                         @if($upcoming_patients_list->isEmpty())
                             NO UPCOMING DEADLINES
                         @else
                             @foreach($upcoming_patients_list as $patient)
-                                 {{$patient->id}}  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; {{$patient->name}} &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; {{$patient->dead_line->toDayDateTimeString()}} <br> <br>
+                                 {{$patient->id}}  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; {{$patient->name}} &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; {{$patient->dead_line->toDayDateTimeString()}}  &nbsp; &nbsp; {{$patient->dead_line->diffInDays(now())}} remaining days  <br> <br>
                             @endforeach
                         @endif
 					</div>

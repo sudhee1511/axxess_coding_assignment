@@ -15,7 +15,7 @@ class Process_Missed_Visits extends Controller
 {
     public function index(){
 		
-		//chunkbyId as we can update huge number of users at a time
+		//DID not use this as I have processed the follow up field in the missed controller
 		$chunk_size = 500;
 			
 			DB::table('users')

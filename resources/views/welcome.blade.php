@@ -87,7 +87,7 @@
 				<div class="links">
                     <a href="/signup" target="_blank">Sign Up</a>
                     <a href="/visit" target="_blank">Add a Visit</a>
-					<a href="/upcoming" target="_blank">Upcoming list of patients</a>
+					<a href="/upcoming" target="_blank">List of patients having upcoming deadline</a>
 					<a href="/process_missed_visits" target="_blank">Process Missed Visits</a>
 					<a href="/missed" target="_blank">Missed Patients - API</a>
                 </div><br>

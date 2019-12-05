@@ -15,14 +15,14 @@ class Missed extends Controller
      */
     public function index()
     {
-        //$this->makeMissed();
-        $missed_patients = User::where("follow_up","missed")->get();
+		//only getting the required attributes as given in the assignment - can get all without mentioning the array
+        $missed_patients = User::where("follow_up","missed")->get(array("id", "name", "start_date", "dead_line", "birth_date"));
 		
 		return response($missed_patients, 200);
     }
 
     public function makeMissed(){
-       $update = User::where("dead_line","<=", "visit_date")->whereNull("follow_up")
+       $update = User::where("dead_line","<=", "visit_date")->where("dead_line", "<=", today())->whereNull("follow_up")
             ->update(["follow_up"=>"missed"]);
        if($update){
 		  return "Successfully updated $update users!!!"; 

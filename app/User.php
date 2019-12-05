@@ -22,7 +22,7 @@ class User extends Authenticatable
     ];
     
     protected $dates = [
-        "birth_date","start_date","dead_line","visit_date",//"follow_up",
+        "birth_date","start_date","dead_line","visit_date",
     ];
 
     /**
@@ -42,4 +42,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+	
+	protected $appends = ['age'];
+	
+	public function getAgeAttribute() {
+    	return $this->birth_date->diffInYears(\Carbon\Carbon::now());
+	}
 }
